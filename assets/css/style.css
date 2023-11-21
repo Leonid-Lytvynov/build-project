@@ -1,0 +1,40 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+li {
+   list-style: none;
+}
+
+.builds {
+   position: relative;
+}
+
+.svg-builds {
+   max-height: 99vh;
+   width: 100%;
+}
+
+.svg-builds path {
+   stroke: #03c4ff00;
+   fill: #03c4ff00;
+   cursor: pointer;
+   transition: .4s;
+}
+
+.svg-builds path:hover {
+   stroke: #03C3FF;
+   fill: #03C3FF;
+   fill-opacity: .3;
+   stroke-opacity: 0.3;
+}
+
+.build-info {
+   position: absolute;
+   padding: 32px;
+   left: 50%;
+   bottom: 15px;
+   transform: translate(-50%, 0);
+}
