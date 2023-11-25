@@ -10,10 +10,11 @@ li {
 
 .builds {
    position: relative;
+   padding: 20px;
 }
 
 .svg-builds {
-   max-height: 99vh;
+   max-height: 95vh;
    width: 100%;
 }
 
@@ -28,13 +29,47 @@ li {
    stroke: #03C3FF;
    fill: #03C3FF;
    fill-opacity: .3;
-   stroke-opacity: 0.3;
+   stroke-opacity: .3;
+}
+
+.svg-builds .sold {
+   stroke: #d9151573;
+   fill: #d9151573;
+   transition: .4s;
+   cursor: no-drop;
+}
+
+.svg-builds .sold:hover {
+   stroke: #d91515b4;
+   fill: #d91515b4;
+   fill-opacity: 1;
+   stroke-opacity: 1;
 }
 
 .build-info {
    position: absolute;
    padding: 32px;
    left: 50%;
-   bottom: 15px;
+   bottom: 30px;
    transform: translate(-50%, 0);
+}
+
+.modal-content {
+   font-family: Arial, Helvetica, sans-serif;
+   text-align: center;
+}
+
+.modal-content h3 {
+   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 991px) {
+   .build-nav {
+      margin-bottom: 20px;
+   }
+
+   .build-info {
+      position: static;
+      transform: translate(0, 0);
+   }
 }
