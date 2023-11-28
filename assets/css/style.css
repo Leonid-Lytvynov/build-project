@@ -26,22 +26,22 @@ li {
 }
 
 .svg-builds path:hover {
-   stroke: #03C3FF;
-   fill: #03C3FF;
+   stroke: #05FFFF;
+   fill: #05FFFF;
    fill-opacity: .3;
-   stroke-opacity: .3;
+   stroke-width: 3;
 }
 
 .svg-builds .sold {
-   stroke: #d9151573;
-   fill: #d9151573;
+   stroke: #fb0000;
+   fill: #d104045c;
    transition: .4s;
    cursor: no-drop;
 }
 
 .svg-builds .sold:hover {
-   stroke: #d91515b4;
-   fill: #d91515b4;
+   stroke: #fb0000;
+   fill: #d10404a1;
    fill-opacity: 1;
    stroke-opacity: 1;
 }
@@ -52,6 +52,11 @@ li {
    left: 50%;
    bottom: 30px;
    transform: translate(-50%, 0);
+}
+
+.build-1 {
+   left: 30px;
+   transform: translate(0);
 }
 
 .modal-content {
@@ -71,5 +76,7 @@ li {
    .build-info {
       position: static;
       transform: translate(0, 0);
+      max-width: 370px;
+      margin: 0 auto;
    }
 }
