@@ -4,6 +4,10 @@
    box-sizing: border-box;
 }
 
+body {
+   background-color: #eff8ff;
+}
+
 li {
    list-style: none;
 }
@@ -68,6 +72,85 @@ li {
    margin-bottom: 15px;
 }
 
+/* Flat */
+
+.floor-1 {
+   padding: 20px;
+}
+
+.flat-info {
+   display: flex;
+   justify-content: space-evenly;
+   border: 1px solid #000;
+   padding: 30px;
+   margin-bottom: 15px;
+}
+
+.flat-item {
+   border: 1px solid #000;
+   padding: 10px;
+   text-align: center;
+}
+
+.flat {
+   cursor: pointer;
+   stroke: #04ff0000;
+   fill: #04ff0000;
+}
+
+.status-border {
+   fill: white;
+   stroke: black;
+   stroke-width: 2px;
+}
+
+.flat .status-cell {
+   fill: #05ffff60;
+}
+
+.flat:hover .flat-path {
+   stroke: #05ffff80;
+   fill: #05ffff60;
+}
+
+.flat.sold .status-cell {
+   fill: #D34E4E;
+}
+
+.sold:hover .flat-path {
+   cursor: no-drop;
+   stroke: #fb0000;
+   fill: #d1040483;
+}
+
+.flat.reservation .status-cell {
+   fill: #6B68FF;
+}
+
+.reservation:hover .flat-path {
+   cursor: no-drop;
+   stroke: #6B68FF;
+   fill: #6b68ff80;
+}
+
+.flat.action .status-cell {
+   fill: #04ff0070;
+}
+
+.action:hover .flat-path {
+   stroke: #05FF00;
+   fill: #04ff0070;
+}
+
+.flat-text {
+   font-size: 16px;
+   font-weight: bold;
+   letter-spacing: 0em;
+   white-space: "pre";
+   font-family: Inter;
+   fill: black;
+}
+
 @media screen and (max-width: 991px) {
    .build-nav {
       margin-bottom: 20px;
@@ -78,5 +161,10 @@ li {
       transform: translate(0, 0);
       max-width: 370px;
       margin: 0 auto;
+   }
+
+   .flat-info {
+      flex-direction: column;
+      gap: 10px;
    }
 }

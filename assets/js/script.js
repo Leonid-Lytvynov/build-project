@@ -56,7 +56,7 @@ const buildInstall = () => {
          if (document.querySelector('.build-1')) {
             soldItem ? getAttr(buildItemFloor, 0) : null;
             soldItem ? getAttr(buildItemFlats, 0) : null;
-            soldItem ? getAttr(buildItemSoldFlats, 8) : null;
+            soldItem ? getAttr(buildItemSoldFlats, 54) : null;
             soldItem ? getAttr(buildItemActionFlats, 0) : null;
             soldItem ? getAttr(buildItemReservationFlats, 0) : null;
          }
@@ -118,3 +118,182 @@ const modalInstall = () => {
    });
 };
 document.querySelector('.custom-modal') ? modalInstall() : null;
+
+
+const flatArray = [
+   {
+      id: 0,
+      house: 1,
+      floor: 6,
+      rooms: 3,
+      square: "82.3 м²",
+      price: "700$",
+      totalPrice: "57400$",
+      flatNumber: 1,
+      status: "Вільно"
+   },
+   {
+      id: 1,
+      house: 1,
+      floor: 6,
+      rooms: 2,
+      square: "60.7 м²",
+      price: "700$",
+      totalPrice: "42000$",
+      flatNumber: 2,
+      status: "Вільно"
+   },
+   {
+      id: 2,
+      house: 1,
+      floor: 6,
+      rooms: 2,
+      square: "60.7 м²",
+      price: "700$",
+      totalPrice: "42000$",
+      flatNumber: 3,
+      status: "Акція"
+   },
+   {
+      id: 3,
+      house: 1,
+      floor: 6,
+      rooms: 3,
+      square: "82.0 м²",
+      price: "700$",
+      totalPrice: "57400$",
+      flatNumber: 4,
+      status: "Продано"
+   },
+   {
+      id: 4,
+      house: 1,
+      floor: 6,
+      rooms: 3,
+      square: "79.7 м²",
+      price: "700$",
+      totalPrice: "55300$",
+      flatNumber: 5,
+      status: "Вільно"
+   },
+   {
+      id: 5,
+      house: 1,
+      floor: 6,
+      rooms: 1,
+      square: "39.2 м²",
+      price: "700$",
+      totalPrice: "27300$",
+      flatNumber: 6,
+      status: "Акція"
+   },
+   {
+      id: 6,
+      house: 1,
+      floor: 6,
+      rooms: 1,
+      square: "42.0 м²",
+      price: "700$",
+      totalPrice: "29400$",
+      flatNumber: 7,
+      status: "Акція"
+   },
+   {
+      id: 7,
+      house: 1,
+      floor: 6,
+      rooms: 1,
+      square: "39.2 м²",
+      price: "700$",
+      totalPrice: "27300$",
+      flatNumber: 8,
+      status: "Вільно"
+   },
+   {
+      id: 8,
+      house: 1,
+      floor: 6,
+      rooms: 3,
+      square: "79.3 м²",
+      price: "700$",
+      totalPrice: "55300$",
+      flatNumber: 9,
+      status: "Бронь"
+   }
+]
+
+window.addEventListener('load', () => {
+   const pageFloorInstall = () => {
+
+      const flats = document.querySelectorAll('.flat');
+      const flatInfo = document.querySelector('.flat-info');
+
+      const flatObj = [{
+         id: 0,
+         house: 1,
+         floor: 6,
+         rooms: 3,
+         square: "82.3 м²",
+         price: "700$",
+         totalPrice: "57400$",
+         flatNumber: 1,
+         status: "Вільно"
+      }]
+
+      const renderInfo = (array) => {
+         const flatInformation = array.map(item => {
+            return (`
+            <div class="flat-item">
+            номер будинку: ${item.house}
+             </div>
+             <div class="flat-item">
+             Поверх: ${item.floor}
+             </div>
+             <div class="flat-item">
+             Кімнати: ${item.rooms}
+             </div>
+             <div class="flat-item">
+             Площа: ${item.square}
+             </div>
+             <div class="flat-item">
+             Ціна за м²: ${item.price}
+             </div>
+             <div class="flat-item">
+             Повна вартість: ${item.totalPrice}
+             </div>
+             <div class="flat-item">
+             Квартира №: ${item.flatNumber}
+             </div>
+             <div class="flat-item">
+             Статус: ${item.status}
+             </div>
+            `)
+         })
+         flatInfo.innerHTML = flatInformation;
+      }
+      renderInfo(flatObj)
+
+      flats.forEach(flat => {
+
+         flat.addEventListener('mouseover', () => {
+
+            const thisFlat = flat.getAttribute('id')
+
+            const flatNumber = flatArray.filter(item => item.flatNumber === Number(thisFlat))
+            renderInfo(flatNumber)
+         })
+
+
+         if (flat.classList.contains('sold')) {
+            flat.querySelector('.flat-status').innerHTML = "Продано";
+         } else if (flat.classList.contains('reservation')) {
+            flat.querySelector('.flat-status').innerHTML = "Бронь";
+         } else if (flat.classList.contains('action')) {
+            flat.querySelector('.flat-status').innerHTML = "Акція";
+         } else {
+            flat.querySelector('.flat-status').innerHTML = "Вільно";
+         }
+      });
+   };
+   document.querySelector('.page-floor') ? pageFloorInstall() : null;
+})
